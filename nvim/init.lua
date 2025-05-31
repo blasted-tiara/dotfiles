@@ -1,4 +1,4 @@
-require("config.lazy")
+require('config.lazy')
 
 -- General editor settings
 vim.opt.wrap = false
@@ -15,4 +15,3 @@ vim.opt.cursorline = true
 
 -- Colorscheme
 vim.cmd.colorscheme("dayfox")
-

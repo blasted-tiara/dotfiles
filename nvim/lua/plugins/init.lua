@@ -14,7 +14,7 @@ return {
         end,
     },
     {
-        "EdenEast/nightfox.nvim", 
+        "EdenEast/nightfox.nvim",
     },
     {
         "nvim-tree/nvim-web-devicons",

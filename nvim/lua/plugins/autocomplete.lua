@@ -36,22 +36,12 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
         },
-        -- Not all LSP servers add brackets when completing a function.
-        -- To better deal with this, LazyVim adds a custom option to cmp,
-        -- that you can configure. For example:
-        --
-        -- ```lua
-        -- opts = {
-        --   auto_brackets = { "python" }
-        -- }
-        -- ```
         opts = function()
             vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
             local cmp = require("cmp")
             local defaults = require("cmp.config.default")()
             local auto_select = true
             return {
-                auto_brackets = {':'}, -- configure any filetype to auto add brackets
                 completion = {
                     completeopt = "menu,menuone,noinsert" .. (auto_select and "" or ",noselect"),
                 },
@@ -64,7 +54,6 @@ return {
                     ["<CR>"] = cmp.mapping.confirm({ select == true }),
                 }),
                 sources = cmp.config.sources({
-                    { name = "lazydev" },
                     { name = "nvim_lsp" },
                     { name = "path" },
                 }, {
@@ -72,14 +61,13 @@ return {
                     }),
                 formatting = {
                     format = function(entry, item)
-                        -- local icons = LazyVim.config.icons.kinds
                         if kind_icons[item.kind] then
                             item.kind = kind_icons[item.kind] .. item.kind
                         end
 
                         local widths = {
-                            abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
-                            menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
+                            abbr = 40,
+                            menu = 30,
                         }
 
                         for key, width in pairs(widths) do
@@ -90,12 +78,6 @@ return {
 
                         return item
                     end,
-                },
-                experimental = {
-                    -- only show ghost text when we show ai completions
-                    ghost_text = vim.g.ai_cmp and {
-                        hl_group = "CmpGhostText",
-                    } or false,
                 },
                 sorting = defaults.sorting,
             }
@@ -123,9 +105,14 @@ return {
     },
     {
         "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!).
+        version = "v2.*",
         build = "make install_jsregexp"
+    },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equivalent to setup({}) function
     }
 }

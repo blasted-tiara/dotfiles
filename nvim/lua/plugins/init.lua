@@ -14,12 +14,6 @@ return {
         end,
     },
     {
-        "EdenEast/nightfox.nvim",
-    },
-    {
-        "nvim-tree/nvim-web-devicons",
-    },
-    {
         "nvim-tree/nvim-tree.lua",
         dependencies = {
             "nvim-tree/nvim-web-devicons",

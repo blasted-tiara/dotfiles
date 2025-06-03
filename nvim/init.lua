@@ -15,6 +15,3 @@ vim.opt.shiftwidth = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
-
--- Colorscheme
-vim.cmd.colorscheme("dayfox")

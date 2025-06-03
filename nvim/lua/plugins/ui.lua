@@ -27,5 +27,25 @@ return {
                 }
             },
         }
+    },
+    {
+        "EdenEast/nightfox.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function ()
+            vim.cmd([[colorscheme dayfox]])
+        end
+
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        event = "VeryLazy",
+        opts = {
+            theme = "gruvbox",
+            options = {
+                disabled_filetypes = { statusline = { "NvimTree" }, winbar = { "NvimTree" } },
+            }
+        },
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
     }
 }

@@ -41,9 +41,9 @@ return {
         'nvim-lualine/lualine.nvim',
         event = "VeryLazy",
         opts = {
-            theme = "gruvbox",
             options = {
-                disabled_filetypes = { statusline = { "NvimTree" }, winbar = { "NvimTree" } },
+                theme = "papercolor_light",
+                ignore_focus = { "NvimTree" },
             }
         },
         dependencies = { 'nvim-tree/nvim-web-devicons' }

@@ -6,6 +6,7 @@ require('config.lazy')
 -- General editor settings
 vim.opt.wrap = false
 vim.opt.linebreak = true
+vim.opt.termguicolors = true
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
